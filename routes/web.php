@@ -19,18 +19,20 @@ Route::get('/', function () {
 });
 
 
-Route::get('/contacts', [ContactController::class,'index'])->name('contacts.index');
+Route::get('/contacts', [ContactController::class,'index'])->name('contacts.index')->middleware('auth');
 
-Route::post('/contacts', [ContactController::class,'store'])->name('contacts.store');
+Route::post('/contacts', [ContactController::class,'store'])->name('contacts.store')->middleware('auth');
 
-Route::get('/contacts/create',[ContactController::class,'create'])->name('contacts.create');
+Route::get('/contacts/create',[ContactController::class,'create'])->name('contacts.create')->middleware('auth');
 
-Route::get('/contacts/{id}',[ContactController::class,'show'])->name('contacts.show');
+Route::get('/contacts/{id}',[ContactController::class,'show'])->name('contacts.show')->middleware('auth');
 
-Route::put('/contacts/{id}',[ContactController::class,'update'])->name('contacts.update');
+Route::put('/contacts/{id}',[ContactController::class,'update'])->name('contacts.update')->middleware('auth');
 
-Route::delete('/contacts/{id}',[ContactController::class,'destroy'])->name('contacts.destroy');
+Route::delete('/contacts/{id}',[ContactController::class,'destroy'])->name('contacts.destroy')->middleware('auth');
 
-Route::get('/contacts/{id}/edit',[ContactController::class,'edit'])->name('contacts.edit');
+Route::get('/contacts/{id}/edit',[ContactController::class,'edit'])->name('contacts.edit')->middleware('auth');
 
+Auth::routes();
 
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
