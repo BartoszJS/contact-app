@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Contact extends Model
 {
     use HasFactory;
-    protected $fillable = ['first_name', 'last_name','email','phone','address','company_id'];
+    protected $fillable = ['first_name', 'last_name','email','phone','address','company_id','user_id'];
 
     public $filterColumns = ['company_id'];
 

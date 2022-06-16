@@ -25,13 +25,13 @@ Route::post('/contacts', [ContactController::class,'store'])->name('contacts.sto
 
 Route::get('/contacts/create',[ContactController::class,'create'])->name('contacts.create')->middleware('auth');
 
-Route::get('/contacts/{id}',[ContactController::class,'show'])->name('contacts.show')->middleware('auth');
+Route::get('/contacts/{contact}',[ContactController::class,'show'])->name('contacts.show')->middleware('auth');
 
-Route::put('/contacts/{id}',[ContactController::class,'update'])->name('contacts.update')->middleware('auth');
+Route::put('/contacts/{contact}',[ContactController::class,'update'])->name('contacts.update')->middleware('auth');
 
-Route::delete('/contacts/{id}',[ContactController::class,'destroy'])->name('contacts.destroy')->middleware('auth');
+Route::delete('/contacts/{contact}',[ContactController::class,'destroy'])->name('contacts.destroy')->middleware('auth');
 
-Route::get('/contacts/{id}/edit',[ContactController::class,'edit'])->name('contacts.edit')->middleware('auth');
+Route::get('/contacts/{contact}/edit',[ContactController::class,'edit'])->name('contacts.edit')->middleware('auth');
 
 Auth::routes();
 
